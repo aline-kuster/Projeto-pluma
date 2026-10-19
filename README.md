@@ -51,4 +51,6 @@ Os fatores de iluminação solar e contraste afetaram diretamente o resultado do
 ---
 
 ## Conclusão e Justificativa das Melhorias
-Conclui-se que o aprimoramento através do uso de **pontos positivos amostrados nas diferentes densidades da fumaça combinados com pontos negativos no fundo (Configuração 2)** representa a melhor alternativa para mitigar os erros de segmentação automática em cenários de queimadas reais, garantindo a retenção do objeto sem vazamento para o fundo.
+Todas as três configurações testadas demonstraram capacidade equivalente para delimitar a base e o tronco central mais denso da pluma sem provocar vazamentos (supersegmentação) para o céu ou terreno. Contudo, **nenhuma das três configurações conseguiu capturar a fumaça rala e difusa situada no lado direito**.
+
+Esse resultado demonstra uma limitação do próprio modelo SAM 2 em lidar com objetos semitransparentes e de baixo contraste. Como o algoritmo se baseia fortemente em gradientes de cor e contornos bem definidos para delimitar objetos, a ausência de uma fronteira nítida entre a fumaça rala e o céu faz com que o ajuste por *prompts* (seja por caixa, pontos ou combinação híbrida) não seja suficiente para forçar o reconhecimento de bordas de baixíssima visibilidade.
